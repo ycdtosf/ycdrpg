@@ -1,18 +1,19 @@
-# Salesforce DX Project: Next Steps
+# YCDRPG
 
-Now that you’ve created a Salesforce DX project, what’s next? Here are some documentation resources to get you started.
+Let's build a role-playing game on Salesforce! 
 
-## How Do You Plan to Deploy Your Changes?
+## Recordings
 
-Do you want to deploy a set of changes, or create a self-contained application? Choose a [development model](https://developer.salesforce.com/tools/vscode/en/user-guide/development-models).
+Raw, full-length recordings of Twitch streams are uploaded to Youtube. 
 
-## Configure Your Salesforce DX Project
+- [Episode 1 - Concepts and Data Model](https://www.youtube.com/watch?v=m4rAQFux_F4)
 
-The `sfdx-project.json` file contains useful configuration information for your project. See [Salesforce DX Project Configuration](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_ws_config.htm) in the _Salesforce DX Developer Guide_ for details about this file.
+## About
 
-## Read All About It
+**You Can’t Do That on Salesforce** is a [Twitch](https://twitch.com/ycdtosf) stream where we build silly things that may or may not belong on the Salesforce platform for laughs and learning.
 
-- [Salesforce Extensions Documentation](https://developer.salesforce.com/tools/vscode/)
-- [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
-- [Salesforce DX Developer Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_intro.htm)
-- [Salesforce CLI Command Reference](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/cli_reference.htm)
+- [YCDTOSF on LinkedIn](https://www.ycdtosf.com/linkedin)
+- [YCDTOSF on Twitch](https://www.ycdtosf.com/twitch)
+- [YCDTOSF on Youtube](https://www.ycdtosf.com/youtube)
+- [YCDTOSF on Github](https://www.ycdtosf.com/github)
+- [YCDTOSF Website](https://www.ycdtosf.com)
