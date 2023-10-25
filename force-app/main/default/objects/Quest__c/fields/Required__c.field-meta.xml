@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Required__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>When checked, this Quest is part of the main storyline.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>When checked, this Quest is part of the main storyline.</inlineHelpText>
+    <label>Required?</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

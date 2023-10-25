@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSetGroup xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Access to assigned Games and related objects.</description>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>YCDRPG Player</label>
+    <permissionSets>Apps_YCDRPG_User</permissionSets>
+    <permissionSets>Objects_Game_Player</permissionSets>
+    <status>Updated</status>
+</PermissionSetGroup>
