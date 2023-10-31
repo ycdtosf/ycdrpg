@@ -242,9 +242,10 @@
             <label>Yes</label>
         </rules>
     </decisions>
+    <description>Screen Flow that begins a new YCDRPG game.</description>
     <environments>Default</environments>
-    <interviewLabel>Screen : New Game {!$Flow.CurrentDateTime}</interviewLabel>
-    <label>Screen : New Game</label>
+    <interviewLabel>YCDRPG : New Game {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>YCDRPG : New Game</label>
     <loops>
         <name>Loop_New_Characters</name>
         <label>Loop New Characters</label>
@@ -345,6 +346,7 @@
                         <elementReference>newGame.Name</elementReference>
                     </defaultValue>
                     <fieldType>InputField</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                 </fields>
                 <inputParameters>
@@ -370,6 +372,7 @@
                     <dataType>String</dataType>
                     <fieldText>New Character Name</fieldText>
                     <fieldType>InputField</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>false</isRequired>
                 </fields>
                 <inputParameters>
@@ -519,6 +522,7 @@
             <dataType>Boolean</dataType>
             <fieldText>I&apos;m done adding Characters, thank you very much.</fieldText>
             <fieldType>InputField</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>true</isRequired>
         </fields>
         <showFooter>true</showFooter>

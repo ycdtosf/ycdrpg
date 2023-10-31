@@ -4,6 +4,7 @@
 
 **/profiles
 **/appMenus
+**/sfdcInternalInt__*.permissionset-meta.xml
 
 package.xml
 

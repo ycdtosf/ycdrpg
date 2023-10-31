@@ -9,6 +9,7 @@
 .vscode/
 .localdevserver/
 deploy-options.json
+*-diagnosis.json
 
 # LWC VSCode autocomplete
 **/lwc/jsconfig.json

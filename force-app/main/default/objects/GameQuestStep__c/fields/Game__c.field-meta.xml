@@ -4,7 +4,6 @@
     <externalId>false</externalId>
     <label>Game</label>
     <referenceTo>Game__c</referenceTo>
-    <relationshipLabel>Game Steps</relationshipLabel>
     <relationshipName>GameSteps</relationshipName>
     <relationshipOrder>0</relationshipOrder>
     <reparentableMasterDetail>false</reparentableMasterDetail>

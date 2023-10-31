@@ -153,13 +153,13 @@
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>ControlledByParent</externalSharingModel>
-    <label>Game Step</label>
+    <label>Game Quest Step</label>
     <nameField>
         <displayFormat>GC-{000000}</displayFormat>
-        <label>Game Step Name</label>
+        <label>Game Quest Step Name</label>
         <type>AutoNumber</type>
     </nameField>
-    <pluralLabel>Game Steps</pluralLabel>
+    <pluralLabel>Game Quest Steps</pluralLabel>
     <searchLayouts></searchLayouts>
     <sharingModel>ControlledByParent</sharingModel>
     <visibility>Public</visibility>
