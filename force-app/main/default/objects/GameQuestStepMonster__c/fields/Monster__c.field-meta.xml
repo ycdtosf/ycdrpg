@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
-    <fullName>Game__c</fullName>
+    <fullName>Monster__c</fullName>
     <externalId>false</externalId>
-    <label>Game</label>
-    <referenceTo>Game__c</referenceTo>
-    <relationshipName>GameSteps</relationshipName>
-    <relationshipOrder>0</relationshipOrder>
+    <label>Monster</label>
+    <referenceTo>Monster__c</referenceTo>
+    <relationshipLabel>Game Quest Step Monsters</relationshipLabel>
+    <relationshipName>GameQuestStepMonsters</relationshipName>
+    <relationshipOrder>1</relationshipOrder>
     <reparentableMasterDetail>false</reparentableMasterDetail>
     <trackTrending>false</trackTrending>
     <type>MasterDetail</type>

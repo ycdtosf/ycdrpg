@@ -308,6 +308,9 @@
         <label>Create Game Characters</label>
         <locationX>50</locationX>
         <locationY>2198</locationY>
+        <connector>
+            <targetReference>New_Game_Quest</targetReference>
+        </connector>
         <inputReference>newGameCharactersCollection</inputReference>
     </recordCreates>
     <recordCreates>
@@ -535,7 +538,20 @@
             <targetReference>s1</targetReference>
         </connector>
     </start>
-    <status>Draft</status>
+    <status>Active</status>
+    <subflows>
+        <name>New_Game_Quest</name>
+        <label>New Game Quest</label>
+        <locationX>50</locationX>
+        <locationY>2306</locationY>
+        <flowName>YCDRPG_New_Game_Quest</flowName>
+        <inputAssignments>
+            <name>gameId</name>
+            <value>
+                <elementReference>newGame.Id</elementReference>
+            </value>
+        </inputAssignments>
+    </subflows>
     <variables>
         <name>characterIterator</name>
         <dataType>SObject</dataType>

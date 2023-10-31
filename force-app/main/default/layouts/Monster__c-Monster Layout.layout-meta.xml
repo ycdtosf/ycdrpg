@@ -11,32 +11,20 @@
                 <field>Name</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Required</behavior>
-                <field>MinSteps__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Required</behavior>
-                <field>MaxSteps__c</field>
+                <behavior>Edit</behavior>
+                <field>MinHitPoints__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Required__c</field>
+                <field>MaxHitPoints__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>PreviousQuest__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Required</behavior>
-                <field>Level__c</field>
+                <field>MinExperiencePoints__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>MaxStepMonsters__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>MinStepMonsters__c</field>
+                <field>MaxExperiencePoints__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -77,11 +65,7 @@
     </layoutSections>
     <relatedLists>
         <fields>NAME</fields>
-        <relatedList>GameQuest__c.Quest__c</relatedList>
-    </relatedLists>
-    <relatedLists>
-        <fields>NAME</fields>
-        <relatedList>Quest__c.PreviousQuest__c</relatedList>
+        <relatedList>GameQuestStepMonster__c.Monster__c</relatedList>
     </relatedLists>
     <showEmailCheckbox>false</showEmailCheckbox>
     <showHighlightsPanel>false</showHighlightsPanel>

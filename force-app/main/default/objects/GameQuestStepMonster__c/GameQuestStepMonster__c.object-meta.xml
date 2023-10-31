@@ -152,15 +152,15 @@
     <enableSearch>false</enableSearch>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
-    <externalSharingModel>ReadWrite</externalSharingModel>
-    <label>Game Quest Step</label>
+    <externalSharingModel>ControlledByParent</externalSharingModel>
+    <label>Game Quest Step Monster</label>
     <nameField>
-        <displayFormat>GC-{000000}</displayFormat>
-        <label>Game Quest Step Name</label>
+        <displayFormat>GQSM-{000000}</displayFormat>
+        <label>Game Quest Step Monster Name</label>
         <type>AutoNumber</type>
     </nameField>
-    <pluralLabel>Game Quest Steps</pluralLabel>
+    <pluralLabel>Game Quest Step Monsters</pluralLabel>
     <searchLayouts></searchLayouts>
-    <sharingModel>ReadWrite</sharingModel>
+    <sharingModel>ControlledByParent</sharingModel>
     <visibility>Public</visibility>
 </CustomObject>

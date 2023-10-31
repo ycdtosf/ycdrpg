@@ -62,13 +62,16 @@
                     <name>relatedListFieldAliases</name>
                     <valueList>
                         <valueListItems>
+                            <value>NAME</value>
+                        </valueListItems>
+                        <valueListItems>
                             <value>Game__c.NAME</value>
                         </valueListItems>
                     </valueList>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>relatedListLabel</name>
-                    <value>Games</value>
+                    <value>Game Quests</value>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>showActionBar</name>

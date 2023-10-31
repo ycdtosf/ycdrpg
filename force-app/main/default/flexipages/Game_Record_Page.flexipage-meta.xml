@@ -41,6 +41,11 @@
             <componentInstance>
                 <componentInstanceProperties>
                     <name>actionNames</name>
+                    <valueList>
+                        <valueListItems>
+                            <value>New</value>
+                        </valueListItems>
+                    </valueList>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>maxRecordsToDisplay</name>
@@ -62,17 +67,20 @@
                     <name>relatedListFieldAliases</name>
                     <valueList>
                         <valueListItems>
+                            <value>NAME</value>
+                        </valueListItems>
+                        <valueListItems>
                             <value>Character__c.NAME</value>
                         </valueListItems>
                     </valueList>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>relatedListLabel</name>
-                    <value>Characters</value>
+                    <value>Game Characters</value>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>showActionBar</name>
-                    <value>false</value>
+                    <value>true</value>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>sortFieldAlias</name>
@@ -115,13 +123,19 @@
                     <name>relatedListFieldAliases</name>
                     <valueList>
                         <valueListItems>
+                            <value>NAME</value>
+                        </valueListItems>
+                        <valueListItems>
                             <value>Quest__c.NAME</value>
+                        </valueListItems>
+                        <valueListItems>
+                            <value>Steps__c</value>
                         </valueListItems>
                     </valueList>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>relatedListLabel</name>
-                    <value>Quests</value>
+                    <value>Game Quests</value>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>showActionBar</name>

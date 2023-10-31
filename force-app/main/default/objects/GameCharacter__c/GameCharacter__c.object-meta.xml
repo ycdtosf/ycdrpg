@@ -155,8 +155,9 @@
     <externalSharingModel>ControlledByParent</externalSharingModel>
     <label>Game Character</label>
     <nameField>
+        <displayFormat>GC-{000000}</displayFormat>
         <label>Game Character Name</label>
-        <type>Text</type>
+        <type>AutoNumber</type>
     </nameField>
     <pluralLabel>Game Characters</pluralLabel>
     <searchLayouts></searchLayouts>

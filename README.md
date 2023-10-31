@@ -26,6 +26,11 @@ Defines a "Step" in a Quest in a Game. We'll talk more today :)
 
 ## Backlog
 
+- Missing logic in New Game Quest Flow if Game Quest is over. Condition = There are no Quests where Previous__c = Latest Quest
+- New Game Flow just restarts after completing. Need a "finished" screen.
+- ✅ Random Number between two numbers
+- ✅ Random Number (default between zero and 1)
+
 ## Episodes
 
 Raw, full-length recordings of Twitch streams are uploaded to Youtube. 

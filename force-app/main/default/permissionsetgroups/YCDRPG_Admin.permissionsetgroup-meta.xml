@@ -4,11 +4,13 @@
     <hasActivationRequired>false</hasActivationRequired>
     <label>YCDRPG Admin</label>
     <permissionSets>Apps_YCDRPG_User</permissionSets>
+    <permissionSets>ObjectsGameQuestStepAdmin</permissionSets>
+    <permissionSets>ObjectsGameQuestStepMonsterAdmin</permissionSets>
     <permissionSets>Objects_Character_Admin</permissionSets>
     <permissionSets>Objects_Game_Admin</permissionSets>
     <permissionSets>Objects_Game_Character_Admin</permissionSets>
     <permissionSets>Objects_Game_Quest_Admin</permissionSets>
-    <permissionSets>Objects_Game_Step_Admin</permissionSets>
+    <permissionSets>Objects_Monster_Admin</permissionSets>
     <permissionSets>Objects_Quest_Admin</permissionSets>
     <status>Updated</status>
 </PermissionSetGroup>

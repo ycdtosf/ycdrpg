@@ -149,17 +149,16 @@
     <enableHistory>false</enableHistory>
     <enableLicensing>false</enableLicensing>
     <enableReports>true</enableReports>
-    <enableSearch>false</enableSearch>
+    <enableSearch>true</enableSearch>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
-    <externalSharingModel>ReadWrite</externalSharingModel>
-    <label>Game Quest Step</label>
+    <externalSharingModel>Private</externalSharingModel>
+    <label>Monster</label>
     <nameField>
-        <displayFormat>GC-{000000}</displayFormat>
-        <label>Game Quest Step Name</label>
-        <type>AutoNumber</type>
+        <label>Monster Name</label>
+        <type>Text</type>
     </nameField>
-    <pluralLabel>Game Quest Steps</pluralLabel>
+    <pluralLabel>Monsters</pluralLabel>
     <searchLayouts></searchLayouts>
     <sharingModel>ReadWrite</sharingModel>
     <visibility>Public</visibility>
