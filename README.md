@@ -2,7 +2,23 @@
 
 YCDRPG is role-playing game engine built on Salesforce. 
 
-## Object Model
+## Classes
+
+### GetRandomNumberInvocable
+This Invocable Action accepts "min" and "max" parameters and returns a random value between them in decimal form (using  `Math.random()`)
+
+## Flows
+
+### New Game
+Inits a new Game by selecting 1+ characters. Calls [New Game Quest](#new-game-quest)
+
+### New Game Quest
+Inits a new Quest in a Game based on their defined Sequence. Calls [New Game Quest Step](#new-game-quest-step)
+
+### New Game Quest Step
+Inits a new Step in a Game Quest. 
+
+## Objects
 
 [Object Model Diagram](https://viewer.diagrams.net/?tags=%7B%7D&highlight=0000ff&edit=_blank&layers=1&nav=1&title=ycdrpg.drawio#Uhttps%3A%2F%2Fdrive.google.com%2Fuc%3Fid%3D1bbdEhfxDGeK8xN4lKr3awgxZ4ZwbDdal%26export%3Ddownload)
 
@@ -15,17 +31,21 @@ How Quests and Characters come together. In D&D, I think this is would be called
 ### GameCharacter
 Associates a Character with a Game.
 
+### GameQuestStep
+Represents a Step in a Game Quest.
+
+### Monster
+An enemy that will be faced in the steps of a Game Quest.
+
 ### Quest
 A mission / level / challenge / something in a Game that takes characters down a path to fight Monsters, find Items, and generally move the Game forward.
-
-### GameQuest
-Associates a Quest with a Game.
 
 ### GameQuestStep
 Defines a "Step" in a Quest in a Game. We'll talk more today :)
 
-## Backlog
+## Backlog / Issues
 
+- Probably need a "Turn" object so we can track fights and outcomes of Steps.
 - Missing logic in New Game Quest Flow if Game Quest is over. Condition = There are no Quests where Previous__c = Latest Quest
 - New Game Flow just restarts after completing. Need a "finished" screen.
 - ✅ Random Number between two numbers
@@ -35,7 +55,7 @@ Defines a "Step" in a Quest in a Game. We'll talk more today :)
 
 Raw, full-length recordings of Twitch streams are uploaded to Youtube. 
 
-- 10/31/2023 - Episode 2 - New Game Flow, New Game Quest Flow, Step Object, Monster Object
+- [10/31/2023 - Episode 2 - New Game Flow, New Game Quest Flow, Step Object, Monster Object](https://www.youtube.com/watch?v=kSzKJRkT07k)
 - [10/24/2023 - Episode 1 - Concepts and Object Model](https://www.youtube.com/watch?v=m4rAQFux_F4)
 
 ## About
