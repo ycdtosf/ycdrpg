@@ -50,6 +50,7 @@ Defines a "Step" in a Quest in a Game. We'll talk more today :)
 - New Game Flow just restarts after completing. Need a "finished" screen.
 - ✅ Random Number between two numbers
 - ✅ Random Number (default between zero and 1)
+- New Game Quest Step Monsters - quantity variable, type variable
 
 ## Episodes
 
