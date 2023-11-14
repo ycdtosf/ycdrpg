@@ -6,6 +6,8 @@
     <permissionSets>Apps_YCDRPG_User</permissionSets>
     <permissionSets>ObjectsGameQuestStepAdmin</permissionSets>
     <permissionSets>ObjectsGameQuestStepMonsterAdmin</permissionSets>
+    <permissionSets>ObjectsGameQuestStepRoundAdmin</permissionSets>
+    <permissionSets>ObjectsGameQuestStepRoundTurnAdmin</permissionSets>
     <permissionSets>Objects_Character_Admin</permissionSets>
     <permissionSets>Objects_Game_Admin</permissionSets>
     <permissionSets>Objects_Game_Character_Admin</permissionSets>

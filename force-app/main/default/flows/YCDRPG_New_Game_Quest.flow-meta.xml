@@ -180,6 +180,9 @@
         <label>Create Game Quest</label>
         <locationX>182</locationX>
         <locationY>866</locationY>
+        <connector>
+            <targetReference>New_Game_Quest_Step</targetReference>
+        </connector>
         <inputReference>newGameQuest</inputReference>
     </recordCreates>
     <recordLookups>
@@ -276,6 +279,19 @@
         </connector>
     </start>
     <status>Active</status>
+    <subflows>
+        <name>New_Game_Quest_Step</name>
+        <label>New Game Quest Step</label>
+        <locationX>182</locationX>
+        <locationY>974</locationY>
+        <flowName>YCDRPG_New_Game_Quest_Step</flowName>
+        <inputAssignments>
+            <name>gameQuestId</name>
+            <value>
+                <elementReference>newGameQuest.Id</elementReference>
+            </value>
+        </inputAssignments>
+    </subflows>
     <variables>
         <name>gameId</name>
         <dataType>String</dataType>

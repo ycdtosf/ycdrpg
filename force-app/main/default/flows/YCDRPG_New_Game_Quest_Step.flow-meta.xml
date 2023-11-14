@@ -21,7 +21,7 @@
                 <leftValueReference>Get_Latest_Game_Quest_Step.Sequence__c</leftValueReference>
                 <operator>LessThan</operator>
                 <rightValue>
-                    <elementReference>Get_Game_Quest.Distance__c</elementReference>
+                    <elementReference>Get_Game_Quest.Steps__c</elementReference>
                 </rightValue>
             </conditions>
             <conditions>
@@ -64,10 +64,19 @@
         <label>Create New Game Step Quest</label>
         <locationX>50</locationX>
         <locationY>458</locationY>
+        <connector>
+            <targetReference>New_Game_Quest_Step_Monsters</targetReference>
+        </connector>
         <inputAssignments>
             <field>GameQuest__c</field>
             <value>
                 <elementReference>Get_Game_Quest.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Game__c</field>
+            <value>
+                <elementReference>Get_Game_Quest.Game__c</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -131,7 +140,44 @@
             <targetReference>Get_Game_Quest</targetReference>
         </connector>
     </start>
-    <status>Active</status>
+    <status>Draft</status>
+    <subflows>
+        <name>New_Game_Quest_Step_Monsters</name>
+        <label>New Game Quest Step Monsters</label>
+        <locationX>50</locationX>
+        <locationY>566</locationY>
+        <connector>
+            <targetReference>New_Game_Quest_Step_Round</targetReference>
+        </connector>
+        <flowName>YCDRPG_New_Game_Quest_Step_Monsters</flowName>
+        <inputAssignments>
+            <name>gameQuestStepId</name>
+            <value>
+                <elementReference>Create_New_Game_Step_Quest</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>maxMonsters</name>
+            <value>
+                <numberValue>2.0</numberValue>
+            </value>
+        </inputAssignments>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </subflows>
+    <subflows>
+        <name>New_Game_Quest_Step_Round</name>
+        <label>New Game Quest Step Round</label>
+        <locationX>50</locationX>
+        <locationY>674</locationY>
+        <flowName>YCDRPG_New_Game_Quest_Step_Round</flowName>
+        <inputAssignments>
+            <name>gameQuestStepId</name>
+            <value>
+                <elementReference>Create_New_Game_Step_Quest</elementReference>
+            </value>
+        </inputAssignments>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </subflows>
     <variables>
         <name>gameQuestId</name>
         <dataType>String</dataType>
