@@ -123,6 +123,13 @@
                 <elementReference>newGame.Id</elementReference>
             </value>
         </assignmentItems>
+        <assignmentItems>
+            <assignToReference>gameCharacterIterator.HitPoints__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <numberValue>50.0</numberValue>
+            </value>
+        </assignmentItems>
         <connector>
             <targetReference>Add_to_Game_Character_Collection</targetReference>
         </connector>
@@ -144,6 +151,13 @@
             <operator>Assign</operator>
             <value>
                 <elementReference>newGame.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>gameCharacterIterator.HitPoints__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <numberValue>50.0</numberValue>
             </value>
         </assignmentItems>
         <connector>
@@ -242,7 +256,8 @@
             <label>Yes</label>
         </rules>
     </decisions>
-    <description>Screen Flow that begins a new YCDRPG game.</description>
+    <description>2023-11-14 - default Game Characters to 50HP
+Screen Flow that begins a new YCDRPG game.</description>
     <environments>Default</environments>
     <interviewLabel>YCDRPG : New Game {!$Flow.CurrentDateTime}</interviewLabel>
     <label>YCDRPG : New Game</label>

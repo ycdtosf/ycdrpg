@@ -155,7 +155,7 @@
     <externalSharingModel>ReadWrite</externalSharingModel>
     <label>Game Quest Step</label>
     <nameField>
-        <displayFormat>GC-{000000}</displayFormat>
+        <displayFormat>GQS-{000000}</displayFormat>
         <label>Game Quest Step Name</label>
         <type>AutoNumber</type>
     </nameField>
