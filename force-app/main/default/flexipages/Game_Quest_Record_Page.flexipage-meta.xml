@@ -11,16 +11,6 @@
                 <identifier>RecordNameField</identifier>
             </fieldInstance>
         </itemInstances>
-        <itemInstances>
-            <fieldInstance>
-                <fieldInstanceProperties>
-                    <name>uiBehavior</name>
-                    <value>required</value>
-                </fieldInstanceProperties>
-                <fieldItem>Record.Distance__c</fieldItem>
-                <identifier>RecordDistance_cField</identifier>
-            </fieldInstance>
-        </itemInstances>
         <name>Facet-6e56d040-9983-446b-b85c-a0328d697f9f</name>
         <type>Facet</type>
     </flexiPageRegions>
