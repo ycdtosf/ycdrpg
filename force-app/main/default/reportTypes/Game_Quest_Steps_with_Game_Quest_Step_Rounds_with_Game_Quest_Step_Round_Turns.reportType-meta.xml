@@ -74,6 +74,11 @@
             <field>TotalMonsterHitPoints__c</field>
             <table>GameQuestStep__c</table>
         </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>IsLastQuestStep__c</field>
+            <table>GameQuestStep__c</table>
+        </columns>
         <masterLabel>Game Quest Steps</masterLabel>
     </sections>
     <sections>

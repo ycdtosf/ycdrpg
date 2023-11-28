@@ -4,10 +4,15 @@ YCDRPG is role-playing game engine built on Salesforce.
 
 ## Classes
 
+### GetNthCollectionItemIvocable
+When passed a `List<sObject>` and an `index`, returns the Nth record in this List. This makes life a little easier vs. loops in Flows that evaluate indexes.
+
 ### GetRandomNumberInvocable
 This Invocable Action accepts "min" and "max" parameters and returns a random value between them in decimal form (using  `Math.random()`)
 
 ## Flows
+
+Many of the 
 
 ### New Game
 Inits a new Game by selecting 1+ characters. Calls [New Game Quest](#new-game-quest)
@@ -17,6 +22,15 @@ Inits a new Quest in a Game based on their defined Sequence. Calls [New Game Que
 
 ### New Game Quest Step
 Inits a new Step in a Game Quest. 
+
+### New Game Quest Monster
+Inits Monsters in a Game Quest Step. 
+
+### New Game Quest Step Round
+Inits a new Round in a Game Quest Step. This Flow is also integral to the logic flow for next round / step / quest / game, as well as endgame logic.
+
+### New Game Quest Step Round Turns
+Inits a new Round in a Game Quest Step Round.
 
 ## Objects
 
@@ -34,14 +48,17 @@ Associates a Character with a Game.
 ### GameQuestStep
 Represents a Step in a Game Quest.
 
+### GameQuestStepRound
+Represents a Round of battle between Players and Monsters.
+
+### GameQuestStepRoundTurn
+Represents a Turn within a Round of battle between Characters and Monsters.
+
 ### Monster
 An enemy that will be faced in the steps of a Game Quest.
 
 ### Quest
 A mission / level / challenge / something in a Game that takes characters down a path to fight Monsters, find Items, and generally move the Game forward.
-
-### GameQuestStep
-Defines a "Step" in a Quest in a Game. We'll talk more today :)
 
 ## Backlog / Issues
 
@@ -51,11 +68,27 @@ Defines a "Step" in a Quest in a Game. We'll talk more today :)
 - ✅ Random Number between two numbers
 - ✅ Random Number (default between zero and 1)
 - New Game Quest Step Monsters - quantity variable, type variable
+- New Game - Character Selection / Create New - simplify across multiple screens?
+- new Invocable - set random/sequence field on List of Records (aka one less loop)
+- new Invocable - get first/Nth/last record from list
+- In a round, what if you kill a monster before it's their turn???
+- No Living Game Characters = Fail Game = Turn, Round, Step, Quest, Game = Failure Status
+- No Living Monsters = Delete Pending Turns, Round Success, Assign Experience Points, Collect Rewards, Create New Step
+- Where does Create New Step Logic live?
+- When monster dies, delete pending turns assigned to monster
+- Monster disposition - ie attack strongest / weakest / randomest
+- Mental Buffs - attack = +1, attack critical = +2, attack dead = +3, damage = -1, critical damage = -2, 
+- Attack outcomes - hit, critical, miss (enemy dodge, defense), kill
+- end game screens after success or failure
+- experience levels? 
+- random sequence isn't working... but maybe that becomes part of turn outcome
 
 ## Episodes
 
 Raw, full-length recordings of Twitch streams are uploaded to Youtube. 
 
+- [10/31/2023 - Episode 4 - Battle Engine, Part Two](https://youtu.be/5GM7bB8kynU)
+- [10/31/2023 - Episode 3 - Battle Engine](https://youtu.be/ZEJATURj0Ws)
 - [10/31/2023 - Episode 2 - New Game Flow, New Game Quest Flow, Step Object, Monster Object](https://www.youtube.com/watch?v=kSzKJRkT07k)
 - [10/24/2023 - Episode 1 - Concepts and Object Model](https://www.youtube.com/watch?v=m4rAQFux_F4)
 

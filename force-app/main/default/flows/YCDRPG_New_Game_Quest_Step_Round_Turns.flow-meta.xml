@@ -171,6 +171,13 @@
                 <elementReference>Get_Random_Sequence2</elementReference>
             </value>
         </assignmentItems>
+        <assignmentItems>
+            <assignToReference>newGameQuestStepRoundTurnIterator.GameQuestStepMonster__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue></stringValue>
+            </value>
+        </assignmentItems>
         <connector>
             <targetReference>Add_To_Collection2</targetReference>
         </connector>

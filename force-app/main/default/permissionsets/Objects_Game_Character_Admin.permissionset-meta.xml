@@ -5,6 +5,11 @@
         <field>GameCharacter__c.HitPoints__c</field>
         <readable>true</readable>
     </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>GameCharacter__c.Sequence__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <hasActivationRequired>false</hasActivationRequired>
     <label>Objects - Game Character Admin</label>
     <objectPermissions>

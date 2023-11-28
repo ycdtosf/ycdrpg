@@ -54,6 +54,24 @@
         <type>Flexipage</type>
         <pageOrSobjectType>GameQuest__c</pageOrSobjectType>
     </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>Game_Quest_Step_Round_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+        <pageOrSobjectType>GameQuestStepRound__c</pageOrSobjectType>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>Game_Quest_Step_Round_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+        <pageOrSobjectType>GameQuestStepRound__c</pageOrSobjectType>
+    </actionOverrides>
     <brand>
         <headerColor>#0070D2</headerColor>
         <shouldOverrideOrgTheme>false</shouldOverrideOrgTheme>
@@ -68,6 +86,7 @@
     <tabs>Game__c</tabs>
     <tabs>Character__c</tabs>
     <tabs>Quest__c</tabs>
+    <tabs>Monster__c</tabs>
     <uiType>Lightning</uiType>
     <utilityBar>YCDRPG_UtilityBar</utilityBar>
 </CustomApplication>
