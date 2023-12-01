@@ -81,14 +81,16 @@ A mission / level / challenge / something in a Game that takes characters down a
 - Attack outcomes - hit, critical, miss (enemy dodge, defense), kill
 - end game screens after success or failure
 - experience levels? 
-- random sequence isn't working... but maybe that becomes part of turn outcome
+- random sequence isn't working... but maybe that becomes part of turn outcom
+- monsters for steps: make more random
+- step sequence did not increment with new step 
 
 ## Episodes
 
 Raw, full-length recordings of Twitch streams are uploaded to Youtube. 
 
-- [10/31/2023 - Episode 4 - Battle Engine, Part Two](https://youtu.be/5GM7bB8kynU)
-- [10/31/2023 - Episode 3 - Battle Engine](https://youtu.be/ZEJATURj0Ws)
+- [11/14/2023 - Episode 4 - Battle Engine, Part Two](https://youtu.be/5GM7bB8kynU)
+- [11/08/2023 - Episode 3 - Battle Engine](https://youtu.be/ZEJATURj0Ws)
 - [10/31/2023 - Episode 2 - New Game Flow, New Game Quest Flow, Step Object, Monster Object](https://www.youtube.com/watch?v=kSzKJRkT07k)
 - [10/24/2023 - Episode 1 - Concepts and Object Model](https://www.youtube.com/watch?v=m4rAQFux_F4)
 

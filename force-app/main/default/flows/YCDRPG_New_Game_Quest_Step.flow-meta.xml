@@ -140,7 +140,7 @@
             <targetReference>Get_Game_Quest</targetReference>
         </connector>
     </start>
-    <status>Draft</status>
+    <status>Active</status>
     <subflows>
         <name>New_Game_Quest_Step_Monsters</name>
         <label>New Game Quest Step Monsters</label>
