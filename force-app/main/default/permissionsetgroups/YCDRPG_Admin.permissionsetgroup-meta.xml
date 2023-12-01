@@ -11,7 +11,9 @@
     <permissionSets>Objects_Character_Admin</permissionSets>
     <permissionSets>Objects_Game_Admin</permissionSets>
     <permissionSets>Objects_Game_Character_Admin</permissionSets>
+    <permissionSets>Objects_Game_Character_Item_Admin</permissionSets>
     <permissionSets>Objects_Game_Quest_Admin</permissionSets>
+    <permissionSets>Objects_Item_Admin</permissionSets>
     <permissionSets>Objects_Monster_Admin</permissionSets>
     <permissionSets>Objects_Quest_Admin</permissionSets>
     <status>Updated</status>
