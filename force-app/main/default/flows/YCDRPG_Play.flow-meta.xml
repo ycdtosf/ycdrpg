@@ -3,8 +3,8 @@
     <actionCalls>
         <name>Get_First_Game_Character</name>
         <label>Get First Game Character</label>
-        <locationX>1854</locationX>
-        <locationY>1190</locationY>
+        <locationX>2118</locationX>
+        <locationY>1298</locationY>
         <actionName>GetNthCollectionItemInvocable</actionName>
         <actionType>apex</actionType>
         <connector>
@@ -38,8 +38,8 @@
     <actionCalls>
         <name>Get_Random_Number</name>
         <label>Get Random Number</label>
-        <locationX>1942</locationX>
-        <locationY>782</locationY>
+        <locationX>2206</locationX>
+        <locationY>890</locationY>
         <actionName>GetRandomNumberInvocable</actionName>
         <actionType>apex</actionType>
         <connector>
@@ -66,8 +66,8 @@
     <assignments>
         <name>Hit_Character</name>
         <label>Hit Character</label>
-        <locationX>1854</locationX>
-        <locationY>1406</locationY>
+        <locationX>2118</locationX>
+        <locationY>1514</locationY>
         <assignmentItems>
             <assignToReference>Get_First_Game_Character.record.HitPoints__c</assignToReference>
             <operator>Subtract</operator>
@@ -82,10 +82,10 @@
     <assignments>
         <name>Hit_Monster</name>
         <label>Hit Monster</label>
-        <locationX>1238</locationX>
-        <locationY>890</locationY>
+        <locationX>1370</locationX>
+        <locationY>1106</locationY>
         <assignmentItems>
-            <assignToReference>selectedMonsterHitPoints</assignToReference>
+            <assignToReference>Get_Selected_Step_Monster_Details.HitPoints__c</assignToReference>
             <operator>Subtract</operator>
             <value>
                 <numberValue>5.0</numberValue>
@@ -98,8 +98,8 @@
     <assignments>
         <name>Set_Game_Character_Sequence_to_Random</name>
         <label>Set Game Character Sequence to Random</label>
-        <locationX>1942</locationX>
-        <locationY>890</locationY>
+        <locationX>2206</locationX>
+        <locationY>998</locationY>
         <assignmentItems>
             <assignToReference>Loop_Game_Characters.Sequence__c</assignToReference>
             <operator>Assign</operator>
@@ -114,8 +114,8 @@
     <assignments>
         <name>Set_Turn_Status</name>
         <label>Set Turn Status</label>
-        <locationX>952</locationX>
-        <locationY>2006</locationY>
+        <locationX>1084</locationX>
+        <locationY>2114</locationY>
         <assignmentItems>
             <assignToReference>Get_Turn.Status__c</assignToReference>
             <operator>Assign</operator>
@@ -131,8 +131,8 @@
         <name>Sort_Game_Characters_by_Sequence</name>
         <elementSubtype>SortCollectionProcessor</elementSubtype>
         <label>Sort Game Characters by Sequence</label>
-        <locationX>1854</locationX>
-        <locationY>1082</locationY>
+        <locationX>2118</locationX>
+        <locationY>1190</locationY>
         <collectionProcessorType>SortCollectionProcessor</collectionProcessorType>
         <collectionReference>Get_Living_Game_Characters</collectionReference>
         <connector>
@@ -148,8 +148,8 @@
     <decisions>
         <name>Any_Living_Monsters</name>
         <label>Any Living Monsters?</label>
-        <locationX>1392</locationX>
-        <locationY>674</locationY>
+        <locationX>1590</locationX>
+        <locationY>782</locationY>
         <defaultConnector>
             <targetReference>Set_Turn_Status</targetReference>
         </defaultConnector>
@@ -174,7 +174,7 @@
         <name>Create_Next_Step</name>
         <label>Create Next Step?</label>
         <locationX>446</locationX>
-        <locationY>782</locationY>
+        <locationY>890</locationY>
         <defaultConnector>
             <targetReference>Set_Quest_to_Success</targetReference>
         </defaultConnector>
@@ -198,8 +198,8 @@
     <decisions>
         <name>Is_Character_Dead</name>
         <label>Is Character Dead?</label>
-        <locationX>1854</locationX>
-        <locationY>1514</locationY>
+        <locationX>2118</locationX>
+        <locationY>1622</locationY>
         <defaultConnector>
             <targetReference>Save_Game_Character</targetReference>
         </defaultConnector>
@@ -223,17 +223,17 @@
     <decisions>
         <name>Monster_Dead</name>
         <label>Monster Dead?</label>
-        <locationX>1238</locationX>
-        <locationY>998</locationY>
+        <locationX>1370</locationX>
+        <locationY>1214</locationY>
         <defaultConnector>
-            <targetReference>Reduce_Step_Monster_Hit_Points</targetReference>
+            <targetReference>Update_Selected_Step_Monste</targetReference>
         </defaultConnector>
         <defaultConnectorLabel>No</defaultConnectorLabel>
         <rules>
             <name>Monster_Dead_Yes</name>
             <conditionLogic>and</conditionLogic>
             <conditions>
-                <leftValueReference>selectedMonsterHitPoints</leftValueReference>
+                <leftValueReference>Get_Selected_Step_Monster_Details.HitPoints__c</leftValueReference>
                 <operator>LessThanOrEqualTo</operator>
                 <rightValue>
                     <numberValue>0.0</numberValue>
@@ -248,8 +248,8 @@
     <decisions>
         <name>Turn_Type</name>
         <label>Turn Type</label>
-        <locationX>952</locationX>
-        <locationY>566</locationY>
+        <locationX>1084</locationX>
+        <locationY>674</locationY>
         <defaultConnector>
             <targetReference>Loop_Game_Characters</targetReference>
         </defaultConnector>
@@ -273,7 +273,7 @@
             <name>No_Living_Monsters</name>
             <conditionLogic>and</conditionLogic>
             <conditions>
-                <leftValueReference>currentItem_Filter_Living_Monsters</leftValueReference>
+                <leftValueReference>Get_Living_Monsters</leftValueReference>
                 <operator>IsNull</operator>
                 <rightValue>
                     <booleanValue>true</booleanValue>
@@ -295,7 +295,7 @@
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>s5</targetReference>
+                <targetReference>Set_Round_to_Success</targetReference>
             </connector>
             <label>No Turn</label>
         </rules>
@@ -355,8 +355,8 @@
     <loops>
         <name>Loop_Game_Characters</name>
         <label>Loop Game Characters</label>
-        <locationX>1854</locationX>
-        <locationY>674</locationY>
+        <locationX>2118</locationX>
+        <locationY>782</locationY>
         <collectionReference>Get_Living_Game_Characters</collectionReference>
         <iterationOrder>Asc</iterationOrder>
         <nextValueConnector>
@@ -388,8 +388,8 @@
     <recordDeletes>
         <name>Delete_Pending_Character_Turns</name>
         <label>Delete Pending Character Turns</label>
-        <locationX>1722</locationX>
-        <locationY>1622</locationY>
+        <locationX>1986</locationX>
+        <locationY>1730</locationY>
         <connector>
             <targetReference>Save_Game_Character</targetReference>
         </connector>
@@ -414,10 +414,14 @@
         <name>Delete_Pending_Monster_Turns</name>
         <label>Delete Pending Monster Turns</label>
         <locationX>1106</locationX>
-        <locationY>1106</locationY>
+        <locationY>1322</locationY>
         <connector>
-            <targetReference>Reduce_Step_Monster_Hit_Points</targetReference>
+            <targetReference>Update_Selected_Step_Monste</targetReference>
         </connector>
+        <faultConnector>
+            <isGoTo>true</isGoTo>
+            <targetReference>Update_Selected_Step_Monste</targetReference>
+        </faultConnector>
         <filterLogic>and</filterLogic>
         <filters>
             <field>GameQuestStepMonster__c</field>
@@ -438,11 +442,11 @@
     <recordLookups>
         <name>Get_Game_Quest_Step</name>
         <label>Get Game Quest Step</label>
-        <locationX>952</locationX>
+        <locationX>1084</locationX>
         <locationY>134</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
-            <targetReference>Get_Turn</targetReference>
+            <targetReference>Get_Round</targetReference>
         </connector>
         <filterLogic>and</filterLogic>
         <filters>
@@ -468,8 +472,8 @@
     <recordLookups>
         <name>Get_Living_Game_Characters</name>
         <label>Get Living Game Characters</label>
-        <locationX>952</locationX>
-        <locationY>350</locationY>
+        <locationX>1084</locationX>
+        <locationY>458</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Get_Living_Monsters</targetReference>
@@ -496,8 +500,8 @@
     <recordLookups>
         <name>Get_Living_Monsters</name>
         <label>Get Living Monsters</label>
-        <locationX>952</locationX>
-        <locationY>458</locationY>
+        <locationX>1084</locationX>
+        <locationY>566</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Turn_Type</targetReference>
@@ -522,10 +526,59 @@
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
     <recordLookups>
+        <name>Get_Round</name>
+        <label>Get Round</label>
+        <locationX>1084</locationX>
+        <locationY>242</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Get_Turn</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>GameQuestStep__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>Get_Game_Quest_Step.Id</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Status__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Pending</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>GameQuestStepRound__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_Selected_Step_Monster_Details</name>
+        <label>Get Selected Step Monster Details</label>
+        <locationX>1370</locationX>
+        <locationY>998</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Hit_Monster</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>Pick_a_Monster</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>GameQuestStepMonster__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
         <name>Get_Turn</name>
         <label>Get Turn</label>
-        <locationX>952</locationX>
-        <locationY>242</locationY>
+        <locationX>1084</locationX>
+        <locationY>350</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Get_Living_Game_Characters</targetReference>
@@ -554,42 +607,18 @@
     <recordUpdates>
         <name>End_Turn</name>
         <label>End Turn</label>
-        <locationX>952</locationX>
-        <locationY>2114</locationY>
+        <locationX>1084</locationX>
+        <locationY>2222</locationY>
         <connector>
             <targetReference>s1</targetReference>
         </connector>
         <inputReference>Get_Turn</inputReference>
     </recordUpdates>
     <recordUpdates>
-        <name>Reduce_Step_Monster_Hit_Points</name>
-        <label>Reduce Step Monster Hit Points</label>
-        <locationX>1238</locationX>
-        <locationY>1298</locationY>
-        <connector>
-            <targetReference>Set_Turn_Status</targetReference>
-        </connector>
-        <filterLogic>and</filterLogic>
-        <filters>
-            <field>Id</field>
-            <operator>EqualTo</operator>
-            <value>
-                <elementReference>Pick_a_Monster</elementReference>
-            </value>
-        </filters>
-        <inputAssignments>
-            <field>HitPoints__c</field>
-            <value>
-                <elementReference>selectedMonsterHitPoints</elementReference>
-            </value>
-        </inputAssignments>
-        <object>GameQuestStepMonster__c</object>
-    </recordUpdates>
-    <recordUpdates>
         <name>Save_Game_Character</name>
         <label>Save Game Character</label>
-        <locationX>1854</locationX>
-        <locationY>1814</locationY>
+        <locationX>2118</locationX>
+        <locationY>1922</locationY>
         <connector>
             <targetReference>Set_Turn_Status</targetReference>
         </connector>
@@ -599,7 +628,7 @@
         <name>Set_Game_to_Failure</name>
         <label>Set Game to Failure</label>
         <locationX>50</locationX>
-        <locationY>890</locationY>
+        <locationY>998</locationY>
         <connector>
             <targetReference>Set_Turn_Status</targetReference>
         </connector>
@@ -623,7 +652,7 @@
         <name>Set_Quest_to_Failure</name>
         <label>Set Quest to Failure</label>
         <locationX>50</locationX>
-        <locationY>782</locationY>
+        <locationY>890</locationY>
         <connector>
             <targetReference>Set_Game_to_Failure</targetReference>
         </connector>
@@ -647,7 +676,7 @@
         <name>Set_Quest_to_Success</name>
         <label>Set Quest to Success</label>
         <locationX>578</locationX>
-        <locationY>890</locationY>
+        <locationY>998</locationY>
         <connector>
             <targetReference>Set_Turn_Status</targetReference>
         </connector>
@@ -668,10 +697,34 @@
         <object>GameQuest__c</object>
     </recordUpdates>
     <recordUpdates>
+        <name>Set_Round_to_Success</name>
+        <label>Set Round to Success</label>
+        <locationX>842</locationX>
+        <locationY>782</locationY>
+        <connector>
+            <targetReference>s5</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>Get_Round.Id</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Status__c</field>
+            <value>
+                <stringValue>Success</stringValue>
+            </value>
+        </inputAssignments>
+        <object>GameQuestStepRound__c</object>
+    </recordUpdates>
+    <recordUpdates>
         <name>Set_Step_to_Failure</name>
         <label>Set Step to Failure</label>
         <locationX>50</locationX>
-        <locationY>674</locationY>
+        <locationY>782</locationY>
         <connector>
             <targetReference>Set_Quest_to_Failure</targetReference>
         </connector>
@@ -695,7 +748,7 @@
         <name>Set_Step_to_Success</name>
         <label>Set Step to Success</label>
         <locationX>446</locationX>
-        <locationY>674</locationY>
+        <locationY>782</locationY>
         <connector>
             <targetReference>Create_Next_Step</targetReference>
         </connector>
@@ -715,11 +768,21 @@
         </inputAssignments>
         <object>GameQuestStep__c</object>
     </recordUpdates>
+    <recordUpdates>
+        <name>Update_Selected_Step_Monste</name>
+        <label>Update Selected Step Monste</label>
+        <locationX>1370</locationX>
+        <locationY>1562</locationY>
+        <connector>
+            <targetReference>Set_Turn_Status</targetReference>
+        </connector>
+        <inputReference>Get_Selected_Step_Monster_Details</inputReference>
+    </recordUpdates>
     <screens>
         <name>s1</name>
         <label>s1</label>
-        <locationX>952</locationX>
-        <locationY>2222</locationY>
+        <locationX>1084</locationX>
+        <locationY>2330</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>true</allowPause>
@@ -738,13 +801,13 @@
     <screens>
         <name>s3</name>
         <label>s3</label>
-        <locationX>1238</locationX>
-        <locationY>782</locationY>
+        <locationX>1370</locationX>
+        <locationY>890</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>true</allowPause>
         <connector>
-            <targetReference>Hit_Monster</targetReference>
+            <targetReference>Get_Selected_Step_Monster_Details</targetReference>
         </connector>
         <fields>
             <name>dt2</name>
@@ -753,7 +816,7 @@
         </fields>
         <fields>
             <name>Pick_a_Monster</name>
-            <choiceReferences>livingMonsterChoices</choiceReferences>
+            <choiceReferences>livingStepMonsters</choiceReferences>
             <dataType>String</dataType>
             <fieldText>Pick a Monster</fieldText>
             <fieldType>RadioButtons</fieldType>
@@ -766,8 +829,8 @@
     <screens>
         <name>s4</name>
         <label>s4</label>
-        <locationX>1854</locationX>
-        <locationY>1298</locationY>
+        <locationX>2118</locationX>
+        <locationY>1406</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>true</allowPause>
@@ -791,7 +854,7 @@
         <name>s5</name>
         <label>s5</label>
         <locationX>842</locationX>
-        <locationY>674</locationY>
+        <locationY>890</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>true</allowPause>
@@ -807,7 +870,7 @@
         <showHeader>true</showHeader>
     </screens>
     <start>
-        <locationX>826</locationX>
+        <locationX>958</locationX>
         <locationY>0</locationY>
         <connector>
             <targetReference>Get_Game_Quest_Step</targetReference>
@@ -818,7 +881,7 @@
         <name>Create_Round</name>
         <label>Create Round</label>
         <locationX>842</locationX>
-        <locationY>782</locationY>
+        <locationY>998</locationY>
         <connector>
             <isGoTo>true</isGoTo>
             <targetReference>Get_Game_Quest_Step</targetReference>
@@ -836,7 +899,7 @@
         <name>New_Step</name>
         <label>New Step</label>
         <locationX>314</locationX>
-        <locationY>890</locationY>
+        <locationY>998</locationY>
         <connector>
             <isGoTo>true</isGoTo>
             <targetReference>Get_Game_Quest_Step</targetReference>
