@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
     <actionCalls>
-        <name>Get_Random_Sequence</name>
-        <label>Get Random Sequence</label>
+        <name>Get_Random_Game_Character_Sequence</name>
+        <label>Get Random Game Character Sequence</label>
         <locationX>264</locationX>
-        <locationY>458</locationY>
+        <locationY>1190</locationY>
         <actionName>GetRandomNumberInvocable</actionName>
         <actionType>apex</actionType>
         <connector>
-            <targetReference>Init_New_Game_Quest_Step_Round_Turn</targetReference>
+            <targetReference>Init_Updated_Game_Character</targetReference>
         </connector>
         <flowTransactionModel>CurrentTransaction</flowTransactionModel>
         <inputParameters>
@@ -28,14 +28,41 @@
         <versionSegment>1</versionSegment>
     </actionCalls>
     <actionCalls>
-        <name>Get_Random_Sequence2</name>
-        <label>Get Random Sequence</label>
+        <name>Get_Random_Game_Character_Turn_Sequence</name>
+        <label>Get Random Game Character Turn Sequence</label>
         <locationX>264</locationX>
         <locationY>1082</locationY>
         <actionName>GetRandomNumberInvocable</actionName>
         <actionType>apex</actionType>
         <connector>
-            <targetReference>Init_New_Game_Quest_Step_Round_Turn2</targetReference>
+            <targetReference>Get_Random_Game_Character_Sequence</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>max</name>
+            <value>
+                <numberValue>1.0</numberValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>min</name>
+            <value>
+                <numberValue>0.0</numberValue>
+            </value>
+        </inputParameters>
+        <nameSegment>GetRandomNumberInvocable</nameSegment>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+        <versionSegment>1</versionSegment>
+    </actionCalls>
+    <actionCalls>
+        <name>Get_Random_Sequence</name>
+        <label>Get Random Sequence</label>
+        <locationX>264</locationX>
+        <locationY>458</locationY>
+        <actionName>GetRandomNumberInvocable</actionName>
+        <actionType>apex</actionType>
+        <connector>
+            <targetReference>Init_New_Game_Quest_Step_Round_Turn</targetReference>
         </connector>
         <flowTransactionModel>CurrentTransaction</flowTransactionModel>
         <inputParameters>
@@ -75,7 +102,7 @@
         <name>Add_To_Collection2</name>
         <label>Add To Collection</label>
         <locationX>264</locationX>
-        <locationY>1298</locationY>
+        <locationY>1622</locationY>
         <assignmentItems>
             <assignToReference>newGameQuestStepRoundTurns</assignToReference>
             <operator>Add</operator>
@@ -85,6 +112,22 @@
         </assignmentItems>
         <connector>
             <targetReference>Loop_Game_Characters</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Add_to_Updated_Game_Characters_Collection</name>
+        <label>Add to Updated Game Characters Collection</label>
+        <locationX>264</locationX>
+        <locationY>1406</locationY>
+        <assignmentItems>
+            <assignToReference>updateGameCharacters</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>updatedGameCharacterIterator</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Init_New_Game_Quest_Step_Round_Turn2</targetReference>
         </connector>
     </assignments>
     <assignments>
@@ -135,7 +178,7 @@
         <name>Init_New_Game_Quest_Step_Round_Turn2</name>
         <label>Init New Game Quest Step Round Turn</label>
         <locationX>264</locationX>
-        <locationY>1190</locationY>
+        <locationY>1514</locationY>
         <assignmentItems>
             <assignToReference>newGameQuestStepRoundTurnIterator.Game__c</assignToReference>
             <operator>Assign</operator>
@@ -168,7 +211,7 @@
             <assignToReference>newGameQuestStepRoundTurnIterator.Sequence__c</assignToReference>
             <operator>Assign</operator>
             <value>
-                <elementReference>Get_Random_Sequence2</elementReference>
+                <elementReference>Get_Random_Game_Character_Turn_Sequence</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
@@ -182,6 +225,30 @@
             <targetReference>Add_To_Collection2</targetReference>
         </connector>
     </assignments>
+    <assignments>
+        <name>Init_Updated_Game_Character</name>
+        <label>Init Updated Game Character</label>
+        <locationX>264</locationX>
+        <locationY>1298</locationY>
+        <assignmentItems>
+            <assignToReference>updatedGameCharacterIterator.Id</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Loop_Game_Characters.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>updatedGameCharacterIterator.Sequence__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Get_Random_Game_Character_Sequence</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Add_to_Updated_Game_Characters_Collection</targetReference>
+        </connector>
+    </assignments>
+    <description>2023-12-01 - adjusting game character sequence approach</description>
     <environments>Default</environments>
     <interviewLabel>YCDRPG : New Game Quest Step Round Turns {!$Flow.CurrentDateTime}</interviewLabel>
     <label>YCDRPG : New Game Quest Step Round Turns</label>
@@ -193,7 +260,7 @@
         <collectionReference>Get_Game_Characters</collectionReference>
         <iterationOrder>Asc</iterationOrder>
         <nextValueConnector>
-            <targetReference>Get_Random_Sequence2</targetReference>
+            <targetReference>Get_Random_Game_Character_Turn_Sequence</targetReference>
         </nextValueConnector>
         <noMoreValuesConnector>
             <targetReference>Create_Turns</targetReference>
@@ -236,7 +303,10 @@
         <name>Create_Turns</name>
         <label>Create Turns</label>
         <locationX>176</locationX>
-        <locationY>1490</locationY>
+        <locationY>1814</locationY>
+        <connector>
+            <targetReference>Update_Game_Characters</targetReference>
+        </connector>
         <inputReference>newGameQuestStepRoundTurns</inputReference>
     </recordCreates>
     <recordLookups>
@@ -316,6 +386,13 @@
         <object>GameQuestStepRound__c</object>
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
+    <recordUpdates>
+        <name>Update_Game_Characters</name>
+        <label>Update Game Characters</label>
+        <locationX>176</locationX>
+        <locationY>1922</locationY>
+        <inputReference>updateGameCharacters</inputReference>
+    </recordUpdates>
     <runInMode>DefaultMode</runInMode>
     <start>
         <locationX>50</locationX>
@@ -347,5 +424,21 @@
         <isInput>false</isInput>
         <isOutput>false</isOutput>
         <objectType>GameQuestStepRoundTurn__c</objectType>
+    </variables>
+    <variables>
+        <name>updatedGameCharacterIterator</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>GameCharacter__c</objectType>
+    </variables>
+    <variables>
+        <name>updateGameCharacters</name>
+        <dataType>SObject</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>GameCharacter__c</objectType>
     </variables>
 </Flow>

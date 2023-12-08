@@ -98,16 +98,24 @@
             </value>
         </assignmentItems>
         <assignmentItems>
-            <assignToReference>newGameQuestStepMonsterIterator.ExperiencePoints__c</assignToReference>
+            <assignToReference>newGameQuestStepMonsterIterator.ExperiencePointsEarned__c</assignToReference>
             <operator>Assign</operator>
             <value>
                 <elementReference>Get_XP</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>newGameQuestStepMonsterIterator.ExperiencePoints__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <numberValue>5.0</numberValue>
             </value>
         </assignmentItems>
         <connector>
             <targetReference>Add_To_Collection</targetReference>
         </connector>
     </assignments>
+    <description>2023-12-01 - Setting Experience Points earned field.</description>
     <environments>Default</environments>
     <interviewLabel>YCDRPG : New Game Quest Step Monsters {!$Flow.CurrentDateTime}</interviewLabel>
     <label>YCDRPG : New Game Quest Step Monsters</label>

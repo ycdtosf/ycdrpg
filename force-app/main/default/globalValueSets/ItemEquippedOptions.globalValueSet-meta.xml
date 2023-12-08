@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Bag</fullName>
+        <default>false</default>
+        <label>Bag</label>
+    </customValue>
+    <customValue>
+        <fullName>Feet</fullName>
+        <default>false</default>
+        <label>Feet</label>
+    </customValue>
+    <customValue>
+        <fullName>Head</fullName>
+        <default>false</default>
+        <label>Head</label>
+    </customValue>
+    <customValue>
+        <fullName>Left Hand</fullName>
+        <default>false</default>
+        <label>Left Hand</label>
+    </customValue>
+    <customValue>
+        <fullName>Legs</fullName>
+        <default>false</default>
+        <label>Legs</label>
+    </customValue>
+    <customValue>
+        <fullName>Right Hand</fullName>
+        <default>false</default>
+        <label>Right Hand</label>
+    </customValue>
+    <customValue>
+        <fullName>Torso</fullName>
+        <default>false</default>
+        <label>Torso</label>
+    </customValue>
+    <description>Enumerates where and how Items can be equipped.</description>
+    <masterLabel>Item Equipped Options</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

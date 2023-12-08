@@ -1,10 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
     <apiVersion>59.0</apiVersion>
+    <assignments>
+        <name>Increment_New_Step_Sequence</name>
+        <label>Increment New Step Sequence</label>
+        <locationX>50</locationX>
+        <locationY>674</locationY>
+        <assignmentItems>
+            <assignToReference>newStepSequence</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <numberValue>1.0</numberValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Create_New_Game_Step_Quest</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Update_New_Step_Sequence</name>
+        <label>Update New Step Sequence</label>
+        <locationX>50</locationX>
+        <locationY>566</locationY>
+        <assignmentItems>
+            <assignToReference>newStepSequence</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Get_Latest_Game_Quest_Step.Sequence__c</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Increment_New_Step_Sequence</targetReference>
+        </connector>
+    </assignments>
     <decisions>
         <name>Create_New_Game_Quest_Step</name>
         <label>Create New Game Quest Step?</label>
-        <locationX>182</locationX>
+        <locationX>336</locationX>
         <locationY>350</locationY>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
@@ -32,11 +64,37 @@
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>Create_New_Game_Step_Quest</targetReference>
+                <targetReference>Latest_Step_Exists</targetReference>
             </connector>
             <label>Yes</label>
         </rules>
     </decisions>
+    <decisions>
+        <name>Latest_Step_Exists</name>
+        <label>Latest Step Exists?</label>
+        <locationX>182</locationX>
+        <locationY>458</locationY>
+        <defaultConnector>
+            <targetReference>Create_New_Game_Step_Quest</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Yes</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_Latest_Game_Quest_Step</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_New_Step_Sequence</targetReference>
+            </connector>
+            <label>Yes</label>
+        </rules>
+    </decisions>
+    <description>2023-12-01 - setting step sequence.</description>
     <environments>Default</environments>
     <interviewLabel>YCDRPG : New Game Quest Step {!$Flow.CurrentDateTime}</interviewLabel>
     <label>YCDRPG : New Game Quest Step</label>
@@ -62,8 +120,8 @@
     <recordCreates>
         <name>Create_New_Game_Step_Quest</name>
         <label>Create New Game Step Quest</label>
-        <locationX>50</locationX>
-        <locationY>458</locationY>
+        <locationX>182</locationX>
+        <locationY>866</locationY>
         <connector>
             <targetReference>New_Game_Quest_Step_Monsters</targetReference>
         </connector>
@@ -82,7 +140,7 @@
         <inputAssignments>
             <field>Sequence__c</field>
             <value>
-                <numberValue>1.0</numberValue>
+                <elementReference>newStepSequence</elementReference>
             </value>
         </inputAssignments>
         <object>GameQuestStep__c</object>
@@ -91,7 +149,7 @@
     <recordLookups>
         <name>Get_Game_Quest</name>
         <label>Get Game Quest</label>
-        <locationX>182</locationX>
+        <locationX>336</locationX>
         <locationY>134</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -112,7 +170,7 @@
     <recordLookups>
         <name>Get_Latest_Game_Quest_Step</name>
         <label>Get Latest Game Quest Step</label>
-        <locationX>182</locationX>
+        <locationX>336</locationX>
         <locationY>242</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -134,7 +192,7 @@
     </recordLookups>
     <runInMode>DefaultMode</runInMode>
     <start>
-        <locationX>56</locationX>
+        <locationX>210</locationX>
         <locationY>0</locationY>
         <connector>
             <targetReference>Get_Game_Quest</targetReference>
@@ -144,8 +202,8 @@
     <subflows>
         <name>New_Game_Quest_Step_Monsters</name>
         <label>New Game Quest Step Monsters</label>
-        <locationX>50</locationX>
-        <locationY>566</locationY>
+        <locationX>182</locationX>
+        <locationY>974</locationY>
         <connector>
             <targetReference>New_Game_Quest_Step_Round</targetReference>
         </connector>
@@ -167,8 +225,8 @@
     <subflows>
         <name>New_Game_Quest_Step_Round</name>
         <label>New Game Quest Step Round</label>
-        <locationX>50</locationX>
-        <locationY>674</locationY>
+        <locationX>182</locationX>
+        <locationY>1082</locationY>
         <flowName>YCDRPG_New_Game_Quest_Step_Round</flowName>
         <inputAssignments>
             <name>gameQuestStepId</name>
@@ -184,5 +242,16 @@
         <isCollection>false</isCollection>
         <isInput>true</isInput>
         <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>newStepSequence</name>
+        <dataType>Number</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <scale>0</scale>
+        <value>
+            <numberValue>1.0</numberValue>
+        </value>
     </variables>
 </Flow>

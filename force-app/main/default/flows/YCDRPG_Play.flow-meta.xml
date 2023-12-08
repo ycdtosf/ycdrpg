@@ -4,7 +4,7 @@
         <name>Get_First_Game_Character</name>
         <label>Get First Game Character</label>
         <locationX>2118</locationX>
-        <locationY>1298</locationY>
+        <locationY>782</locationY>
         <actionName>GetNthCollectionItemInvocable</actionName>
         <actionType>apex</actionType>
         <connector>
@@ -36,14 +36,14 @@
         <versionSegment>1</versionSegment>
     </actionCalls>
     <actionCalls>
-        <name>Get_Random_Number</name>
-        <label>Get Random Number</label>
-        <locationX>2206</locationX>
-        <locationY>890</locationY>
+        <name>Get_Game_Character_Sequence</name>
+        <label>Get Game Character Sequence</label>
+        <locationX>2118</locationX>
+        <locationY>1106</locationY>
         <actionName>GetRandomNumberInvocable</actionName>
         <actionType>apex</actionType>
         <connector>
-            <targetReference>Set_Game_Character_Sequence_to_Random</targetReference>
+            <targetReference>Hit_Character</targetReference>
         </connector>
         <flowTransactionModel>Automatic</flowTransactionModel>
         <inputParameters>
@@ -67,12 +67,19 @@
         <name>Hit_Character</name>
         <label>Hit Character</label>
         <locationX>2118</locationX>
-        <locationY>1514</locationY>
+        <locationY>1214</locationY>
         <assignmentItems>
             <assignToReference>Get_First_Game_Character.record.HitPoints__c</assignToReference>
             <operator>Subtract</operator>
             <value>
-                <numberValue>5.0</numberValue>
+                <elementReference>Get_Monster_Damage.damage</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>Get_First_Game_Character.record.Sequence__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Get_Game_Character_Sequence</elementReference>
             </value>
         </assignmentItems>
         <connector>
@@ -83,12 +90,12 @@
         <name>Hit_Monster</name>
         <label>Hit Monster</label>
         <locationX>1370</locationX>
-        <locationY>1106</locationY>
+        <locationY>1214</locationY>
         <assignmentItems>
             <assignToReference>Get_Selected_Step_Monster_Details.HitPoints__c</assignToReference>
             <operator>Subtract</operator>
             <value>
-                <numberValue>5.0</numberValue>
+                <elementReference>Get_Character_Damage.damage</elementReference>
             </value>
         </assignmentItems>
         <connector>
@@ -96,26 +103,10 @@
         </connector>
     </assignments>
     <assignments>
-        <name>Set_Game_Character_Sequence_to_Random</name>
-        <label>Set Game Character Sequence to Random</label>
-        <locationX>2206</locationX>
-        <locationY>998</locationY>
-        <assignmentItems>
-            <assignToReference>Loop_Game_Characters.Sequence__c</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>Get_Random_Number</elementReference>
-            </value>
-        </assignmentItems>
-        <connector>
-            <targetReference>Loop_Game_Characters</targetReference>
-        </connector>
-    </assignments>
-    <assignments>
         <name>Set_Turn_Status</name>
         <label>Set Turn Status</label>
         <locationX>1084</locationX>
-        <locationY>2114</locationY>
+        <locationY>1946</locationY>
         <assignmentItems>
             <assignToReference>Get_Turn.Status__c</assignToReference>
             <operator>Assign</operator>
@@ -127,24 +118,6 @@
             <targetReference>End_Turn</targetReference>
         </connector>
     </assignments>
-    <collectionProcessors>
-        <name>Sort_Game_Characters_by_Sequence</name>
-        <elementSubtype>SortCollectionProcessor</elementSubtype>
-        <label>Sort Game Characters by Sequence</label>
-        <locationX>2118</locationX>
-        <locationY>1190</locationY>
-        <collectionProcessorType>SortCollectionProcessor</collectionProcessorType>
-        <collectionReference>Get_Living_Game_Characters</collectionReference>
-        <connector>
-            <targetReference>Get_First_Game_Character</targetReference>
-        </connector>
-        <limit>1</limit>
-        <sortOptions>
-            <doesPutEmptyStringAndNullFirst>false</doesPutEmptyStringAndNullFirst>
-            <sortField>Sequence__c</sortField>
-            <sortOrder>Asc</sortOrder>
-        </sortOptions>
-    </collectionProcessors>
     <decisions>
         <name>Any_Living_Monsters</name>
         <label>Any Living Monsters?</label>
@@ -199,7 +172,7 @@
         <name>Is_Character_Dead</name>
         <label>Is Character Dead?</label>
         <locationX>2118</locationX>
-        <locationY>1622</locationY>
+        <locationY>1322</locationY>
         <defaultConnector>
             <targetReference>Save_Game_Character</targetReference>
         </defaultConnector>
@@ -224,7 +197,7 @@
         <name>Monster_Dead</name>
         <label>Monster Dead?</label>
         <locationX>1370</locationX>
-        <locationY>1214</locationY>
+        <locationY>1322</locationY>
         <defaultConnector>
             <targetReference>Update_Selected_Step_Monste</targetReference>
         </defaultConnector>
@@ -251,7 +224,7 @@
         <locationX>1084</locationX>
         <locationY>674</locationY>
         <defaultConnector>
-            <targetReference>Loop_Game_Characters</targetReference>
+            <targetReference>Get_First_Game_Character</targetReference>
         </defaultConnector>
         <defaultConnectorLabel>Monster</defaultConnectorLabel>
         <rules>
@@ -352,20 +325,6 @@
     <environments>Default</environments>
     <interviewLabel>YCDRPG : Play {!$Flow.CurrentDateTime}</interviewLabel>
     <label>YCDRPG : Play</label>
-    <loops>
-        <name>Loop_Game_Characters</name>
-        <label>Loop Game Characters</label>
-        <locationX>2118</locationX>
-        <locationY>782</locationY>
-        <collectionReference>Get_Living_Game_Characters</collectionReference>
-        <iterationOrder>Asc</iterationOrder>
-        <nextValueConnector>
-            <targetReference>Get_Random_Number</targetReference>
-        </nextValueConnector>
-        <noMoreValuesConnector>
-            <targetReference>Sort_Game_Characters_by_Sequence</targetReference>
-        </noMoreValuesConnector>
-    </loops>
     <processMetadataValues>
         <name>BuilderType</name>
         <value>
@@ -389,7 +348,7 @@
         <name>Delete_Pending_Character_Turns</name>
         <label>Delete Pending Character Turns</label>
         <locationX>1986</locationX>
-        <locationY>1730</locationY>
+        <locationY>1430</locationY>
         <connector>
             <targetReference>Save_Game_Character</targetReference>
         </connector>
@@ -414,7 +373,7 @@
         <name>Delete_Pending_Monster_Turns</name>
         <label>Delete Pending Monster Turns</label>
         <locationX>1106</locationX>
-        <locationY>1322</locationY>
+        <locationY>1430</locationY>
         <connector>
             <targetReference>Update_Selected_Step_Monste</targetReference>
         </connector>
@@ -495,6 +454,8 @@
         </filters>
         <getFirstRecordOnly>false</getFirstRecordOnly>
         <object>GameCharacter__c</object>
+        <sortField>Sequence__c</sortField>
+        <sortOrder>Asc</sortOrder>
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
     <recordLookups>
@@ -560,7 +521,7 @@
         <locationY>998</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
-            <targetReference>Hit_Monster</targetReference>
+            <targetReference>Get_Character_Damage</targetReference>
         </connector>
         <filterLogic>and</filterLogic>
         <filters>
@@ -608,7 +569,7 @@
         <name>End_Turn</name>
         <label>End Turn</label>
         <locationX>1084</locationX>
-        <locationY>2222</locationY>
+        <locationY>2054</locationY>
         <connector>
             <targetReference>s1</targetReference>
         </connector>
@@ -618,7 +579,7 @@
         <name>Save_Game_Character</name>
         <label>Save Game Character</label>
         <locationX>2118</locationX>
-        <locationY>1922</locationY>
+        <locationY>1622</locationY>
         <connector>
             <targetReference>Set_Turn_Status</targetReference>
         </connector>
@@ -772,7 +733,7 @@
         <name>Update_Selected_Step_Monste</name>
         <label>Update Selected Step Monste</label>
         <locationX>1370</locationX>
-        <locationY>1562</locationY>
+        <locationY>1670</locationY>
         <connector>
             <targetReference>Set_Turn_Status</targetReference>
         </connector>
@@ -782,7 +743,7 @@
         <name>s1</name>
         <label>s1</label>
         <locationX>1084</locationX>
-        <locationY>2330</locationY>
+        <locationY>2162</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>true</allowPause>
@@ -830,12 +791,12 @@
         <name>s4</name>
         <label>s4</label>
         <locationX>2118</locationX>
-        <locationY>1406</locationY>
+        <locationY>890</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>true</allowPause>
         <connector>
-            <targetReference>Hit_Character</targetReference>
+            <targetReference>Get_Monster_Damage</targetReference>
         </connector>
         <fields>
             <name>dt3</name>
@@ -891,6 +852,76 @@
             <name>gameQuestStepId</name>
             <value>
                 <elementReference>Get_Game_Quest_Step.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </subflows>
+    <subflows>
+        <name>Get_Character_Damage</name>
+        <label>Get Character Damage</label>
+        <locationX>1370</locationX>
+        <locationY>1106</locationY>
+        <connector>
+            <targetReference>Hit_Monster</targetReference>
+        </connector>
+        <flowName>YCDRPG_Calculate_Damage</flowName>
+        <inputAssignments>
+            <name>attackerDMG</name>
+            <value>
+                <numberValue>5.0</numberValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>attackerXP</name>
+            <value>
+                <elementReference>Get_Turn.GameCharacter__r.ExperiencePoints__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>defenderDEF</name>
+            <value>
+                <numberValue>3.0</numberValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>defenderXP</name>
+            <value>
+                <elementReference>Get_Selected_Step_Monster_Details.ExperiencePoints__c</elementReference>
+            </value>
+        </inputAssignments>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </subflows>
+    <subflows>
+        <name>Get_Monster_Damage</name>
+        <label>Get Monster Damage</label>
+        <locationX>2118</locationX>
+        <locationY>998</locationY>
+        <connector>
+            <targetReference>Get_Game_Character_Sequence</targetReference>
+        </connector>
+        <flowName>YCDRPG_Calculate_Damage</flowName>
+        <inputAssignments>
+            <name>attackerDMG</name>
+            <value>
+                <numberValue>3.0</numberValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>attackerXP</name>
+            <value>
+                <elementReference>Get_Selected_Step_Monster_Details.ExperiencePoints__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>defenderDEF</name>
+            <value>
+                <numberValue>2.0</numberValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>defenderXP</name>
+            <value>
+                <elementReference>Get_First_Game_Character.record.ExperiencePoints__c</elementReference>
             </value>
         </inputAssignments>
         <storeOutputAutomatically>true</storeOutputAutomatically>
