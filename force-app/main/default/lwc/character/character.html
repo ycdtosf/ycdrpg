@@ -1,0 +1,9 @@
+<template>
+    <template if:true={characterRecord}>
+        <div style="height: 240px; width: 160px; border: solid 1px #000;">
+            <div><img src="https://static.wikia.nocookie.net/harrypotter/images/7/72/Merlin_Chocolate_Frog_Card_HM.PNG" /></div>
+            <div>{characterRecord.Name}</div>
+            <slot name="afterName"></slot>
+        </div>
+    </template>
+</template>
