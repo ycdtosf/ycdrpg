@@ -84,6 +84,8 @@ A mission / level / challenge / something in a Game that takes characters down a
 - ✅ random sequence isn't working... but maybe that becomes part of turn outcom
 - monsters for steps: make more random
 - ✅ step sequence did not increment with new step 
+- need max hit points, not just current hit points
+- Game Character "Position" vs "Sequence" (attack sequen)
 
 ## Episodes
 

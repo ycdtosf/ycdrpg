@@ -1,0 +1,10 @@
+<template>
+    <template if:true={gameCharacterRecords}>
+        <template for:each={gameCharacterRecords} for:item="gameCharacterRecord">
+            <c-game-character 
+                key={gameCharacterRecord.Id} 
+                game-character-record={gameCharacterRecord} 
+                current-turn-record={currentTurnRecord}></c-game-character>
+        </template>
+    </template>
+</template>

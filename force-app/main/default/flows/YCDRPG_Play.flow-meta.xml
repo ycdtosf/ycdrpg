@@ -784,6 +784,54 @@
             <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>true</isRequired>
         </fields>
+        <fields>
+            <name>s3_Section1</name>
+            <fieldType>RegionContainer</fieldType>
+            <fields>
+                <name>s3_Section1_Column1</name>
+                <fieldType>Region</fieldType>
+                <inputParameters>
+                    <name>width</name>
+                    <value>
+                        <stringValue>6</stringValue>
+                    </value>
+                </inputParameters>
+                <isRequired>false</isRequired>
+            </fields>
+            <fields>
+                <name>s3_Section1_Column2</name>
+                <fieldType>Region</fieldType>
+                <fields>
+                    <name>gameCharacterRepeater</name>
+                    <extensionName>c:gameCharacterRepeater</extensionName>
+                    <fieldType>ComponentInstance</fieldType>
+                    <inputParameters>
+                        <name>gameCharacterRecords</name>
+                        <value>
+                            <elementReference>Get_Living_Game_Characters</elementReference>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>currentTurnRecord</name>
+                        <value>
+                            <elementReference>Get_Turn</elementReference>
+                        </value>
+                    </inputParameters>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isRequired>true</isRequired>
+                    <storeOutputAutomatically>true</storeOutputAutomatically>
+                </fields>
+                <inputParameters>
+                    <name>width</name>
+                    <value>
+                        <stringValue>6</stringValue>
+                    </value>
+                </inputParameters>
+                <isRequired>false</isRequired>
+            </fields>
+            <isRequired>false</isRequired>
+            <regionContainerType>SectionWithoutHeader</regionContainerType>
+        </fields>
         <showFooter>true</showFooter>
         <showHeader>true</showHeader>
     </screens>
