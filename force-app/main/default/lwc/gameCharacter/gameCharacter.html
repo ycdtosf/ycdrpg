@@ -1,8 +1,7 @@
 <template>
     <template if:true={gameCharacterRecord}>
-        <c-character character-record-id={gameCharacterRecord.Character__c}>
+        <c-character is-active={isActive} character-record-id={gameCharacterRecord.Character__c}>
             <div slot="afterName">{gameCharacterRecord.HitPoints__c} / {gameCharacterRecord.HitPoints__c}</div>
         </c-character>
-        <div>{isActive}</div>
     </template>
 </template>

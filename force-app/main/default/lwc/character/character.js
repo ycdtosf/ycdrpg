@@ -5,6 +5,7 @@ export default class Character extends LightningElement {
 
     @api characterRecord;
     @api characterRecordId;
+    @api isActive;
 
     @wire(getRecord, { recordId: '$characterRecordId', fields : [ 'Character__c.Id', 'Character__c.Name' ]})
     handleGetRecord({ error, data }) {
@@ -18,6 +19,12 @@ export default class Character extends LightningElement {
             }
             console.log(this.characterRecord);
         }
+    }
+
+    renderedCallback() {
+        if(!this.template.querySelector('.container')) return;
+        if(this.isActive === true) this.template.querySelector('.container').classList.add('activeContainer');
+        else { this.template.querySelector('.container').classList.remove('activeContainer'); }
     }
 
     /*

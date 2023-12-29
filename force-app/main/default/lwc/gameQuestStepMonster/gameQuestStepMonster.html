@@ -1,0 +1,9 @@
+<template>
+    <template if:true={gameQuestStepMonsterRecord}>
+        <div onclick={handleClick}>
+            <c-monster is-active={isActive} monster-record-id={gameQuestStepMonsterRecord.Monster__c}>
+                <div slot="afterName">{gameQuestStepMonsterRecord.HitPoints__c} / {gameQuestStepMonsterRecord.HitPoints__c}</div>
+            </c-monster>
+        </div>
+    </template>
+</template>

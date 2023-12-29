@@ -1,13 +1,13 @@
 <template>
-    <template if:true={characterRecord}>
+    <template if:true={monsterRecord}>
         <div class="container">
             <div>
                 <c-content-version-image 
-                    linked-entity-id={characterRecordId} 
+                    linked-entity-id={monsterRecordId} 
                     content-document-title-filter="%_headshot">
                 </c-content-version-image>
             </div>
-            <div>{characterRecord.Name}</div>
+            <div>{monsterRecord.Name}</div>
             <slot name="afterName"></slot>
         </div>
     </template>
