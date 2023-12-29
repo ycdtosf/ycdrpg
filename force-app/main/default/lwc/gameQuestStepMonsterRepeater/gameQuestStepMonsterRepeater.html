@@ -1,0 +1,10 @@
+<template>
+    <template if:true={gameQuestStepMonsterRecords}>
+        <template for:each={gameQuestStepMonsterRecords} for:item="gameQuestStepMonsterRecord">
+            <c-game-quest-step-monster 
+                key={gameQuestStepMonsterRecord.Id} 
+                game-quest-step-monster-record={gameQuestStepMonsterRecord} 
+                current-turn-record={currentTurnRecord}></c-game-quest-step-monster>
+        </template>
+    </template>
+</template>
