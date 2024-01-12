@@ -130,6 +130,13 @@
                 <numberValue>50.0</numberValue>
             </value>
         </assignmentItems>
+        <assignmentItems>
+            <assignToReference>gameCharacterIterator.ExperiencePoints__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <numberValue>1.0</numberValue>
+            </value>
+        </assignmentItems>
         <connector>
             <targetReference>Add_to_Game_Character_Collection</targetReference>
         </connector>
@@ -158,6 +165,13 @@
             <operator>Assign</operator>
             <value>
                 <numberValue>50.0</numberValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>gameCharacterIterator.ExperiencePoints__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <numberValue>1.0</numberValue>
             </value>
         </assignmentItems>
         <connector>
@@ -256,7 +270,8 @@
             <label>Yes</label>
         </rules>
     </decisions>
-    <description>2023-11-14 - default Game Characters to 50HP
+    <description>2023-11-14 - default Game Characters to 1XP
+2023-11-14 - default Game Characters to 50HP
 Screen Flow that begins a new YCDRPG game.</description>
     <environments>Default</environments>
     <interviewLabel>YCDRPG : New Game {!$Flow.CurrentDateTime}</interviewLabel>
