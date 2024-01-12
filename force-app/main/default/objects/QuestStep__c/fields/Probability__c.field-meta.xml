@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Probability__c</fullName>
+    <description>How likely is this Step to appear in a Quest?</description>
+    <externalId>false</externalId>
+    <inlineHelpText>How likely is this Step to appear in a Quest?</inlineHelpText>
+    <label>Probability</label>
+    <precision>3</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Percent</type>
+</CustomField>

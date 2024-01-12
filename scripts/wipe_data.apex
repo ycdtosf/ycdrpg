@@ -1,0 +1,1 @@
+delete [select Id from Game__c];

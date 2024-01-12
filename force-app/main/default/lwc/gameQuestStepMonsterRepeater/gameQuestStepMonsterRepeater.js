@@ -1,7 +1,7 @@
 import { LightningElement, api, wire } from 'lwc';
 import { subscribe, unsubscribe, APPLICATION_SCOPE, MessageContext } from 'lightning/messageService';
 import ycdrpgMessage from '@salesforce/messageChannel/YCDRPG__c';
-import { FlowAttributeChangeEvent } from 'lightning/flowSupport';
+import { FlowAttributeChangeEvent, FlowNavigationNextEvent } from 'lightning/flowSupport';
 
 export default class GameQuestStepMonsterRepeater extends LightningElement {
 
@@ -37,6 +37,7 @@ export default class GameQuestStepMonsterRepeater extends LightningElement {
         if(this.messageData.event === 'GAME_QUEST_STEP_MONSTER_CLICKED') {
             // report selected monster to Flow...
             this.dispatchEvent(new FlowAttributeChangeEvent('selectedGameQuestStepMonsterId', this.messageData.recordId));
+            this.dispatchEvent(new FlowNavigationNextEvent());
         }
     }
 

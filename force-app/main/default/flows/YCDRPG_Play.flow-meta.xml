@@ -386,7 +386,7 @@
             <field>GameQuestStepMonster__c</field>
             <operator>EqualTo</operator>
             <value>
-                <elementReference>Pick_a_Monster</elementReference>
+                <elementReference>gameQuestStepMonsterRepeater.selectedGameQuestStepMonsterId</elementReference>
             </value>
         </filters>
         <filters>
@@ -528,7 +528,7 @@
             <field>Id</field>
             <operator>EqualTo</operator>
             <value>
-                <elementReference>Pick_a_Monster</elementReference>
+                <elementReference>gameQuestStepMonsterRepeater.selectedGameQuestStepMonsterId</elementReference>
             </value>
         </filters>
         <getFirstRecordOnly>true</getFirstRecordOnly>
@@ -764,9 +764,9 @@
         <label>s3</label>
         <locationX>1370</locationX>
         <locationY>890</locationY>
-        <allowBack>true</allowBack>
+        <allowBack>false</allowBack>
         <allowFinish>true</allowFinish>
-        <allowPause>true</allowPause>
+        <allowPause>false</allowPause>
         <connector>
             <targetReference>Get_Selected_Step_Monster_Details</targetReference>
         </connector>
@@ -776,13 +776,15 @@
             <fieldType>DisplayText</fieldType>
         </fields>
         <fields>
-            <name>Pick_a_Monster</name>
-            <choiceReferences>livingStepMonsters</choiceReferences>
+            <name>selectedGameQuestStepMonsterId</name>
             <dataType>String</dataType>
-            <fieldText>Pick a Monster</fieldText>
-            <fieldType>RadioButtons</fieldType>
+            <defaultValue>
+                <elementReference>gameQuestStepMonsterRepeater.selectedGameQuestStepMonsterId</elementReference>
+            </defaultValue>
+            <fieldText>selectedGameQuestStepMonsterId</fieldText>
+            <fieldType>InputField</fieldType>
             <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-            <isRequired>true</isRequired>
+            <isRequired>false</isRequired>
         </fields>
         <fields>
             <name>s3_Section1</name>
@@ -790,6 +792,26 @@
             <fields>
                 <name>s3_Section1_Column1</name>
                 <fieldType>Region</fieldType>
+                <fields>
+                    <name>gameQuestStepMonsterRepeater</name>
+                    <extensionName>c:gameQuestStepMonsterRepeater</extensionName>
+                    <fieldType>ComponentInstance</fieldType>
+                    <inputParameters>
+                        <name>currentTurnRecord</name>
+                        <value>
+                            <elementReference>Get_Turn</elementReference>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>gameQuestStepMonsterRecords</name>
+                        <value>
+                            <elementReference>Get_Living_Monsters</elementReference>
+                        </value>
+                    </inputParameters>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isRequired>true</isRequired>
+                    <storeOutputAutomatically>true</storeOutputAutomatically>
+                </fields>
                 <inputParameters>
                     <name>width</name>
                     <value>
@@ -832,7 +854,7 @@
             <isRequired>false</isRequired>
             <regionContainerType>SectionWithoutHeader</regionContainerType>
         </fields>
-        <showFooter>true</showFooter>
+        <showFooter>false</showFooter>
         <showHeader>true</showHeader>
     </screens>
     <screens>
@@ -1013,6 +1035,9 @@
         <isCollection>false</isCollection>
         <isInput>true</isInput>
         <isOutput>false</isOutput>
+        <value>
+            <stringValue>a08DE00000P1tfNYAR</stringValue>
+        </value>
     </variables>
     <variables>
         <name>selectedMonsterHitPoints</name>

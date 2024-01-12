@@ -62,30 +62,8 @@ A mission / level / challenge / something in a Game that takes characters down a
 
 ## Backlog / Issues
 
-- ✅ Probably need a "Turn" object so we can track fights and outcomes of Steps.
-- Missing logic in New Game Quest Flow if Game Quest is over. Condition = There are no Quests where Previous__c = Latest Quest
-- New Game Flow just restarts after completing. Need a "finished" screen.
-- ✅ Random Number between two numbers
-- ✅ Random Number (default between zero and 1)
-- New Game Quest Step Monsters - quantity variable, type variable
-- New Game - Character Selection / Create New - simplify across multiple screens?
-- new Invocable - set random/sequence field on List of Records (aka one less loop)
-- ✅ new Invocable - get first/Nth/last record from list
-- In a round, what if you kill a monster before it's their turn???
-- No Living Game Characters = Fail Game = Turn, Round, Step, Quest, Game = Failure Status
-- No Living Monsters = Delete Pending Turns, Round Success, Assign Experience Points, Collect Rewards, Create New Step
-- ✅ Where does Create New Step Logic live?
-- ✅ When monster dies, delete pending turns assigned to monster
-- Monster disposition - ie attack strongest / weakest / randomest
-- Mental Buffs - attack = +1, attack critical = +2, attack dead = +3, damage = -1, critical damage = -2, 
-- Attack outcomes - hit, critical, miss (enemy dodge, defense), kill
-- end game screens after success or failure
-- experience levels? 
-- ✅ random sequence isn't working... but maybe that becomes part of turn outcom
-- monsters for steps: make more random
-- ✅ step sequence did not increment with new step 
-- need max hit points, not just current hit points
-- Game Character "Position" vs "Sequence" (attack sequen)
+- [Github Project](https://github.com/users/ycdtosf/projects/2)
+- [Github Issues]https://github.com/ycdtosf/ycdrpg/issues)
 
 ## Episodes
 
